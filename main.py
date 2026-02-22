@@ -5,9 +5,9 @@ import warnings
 from pipeline.log_parser import process_all_logs
 from pipeline.feature_extractor import run_extraction
 from pipeline.ppg_processor import extract_ppg_features
-from pipeline.model_training import run_full_fusion_experiment
-from pipeline.video_only import run_video_only_experiment
-from pipeline.audio_only import run_audio_only_experiment
+from pipeline.fusion_bilstm import run_full_fusion_experiment
+from pipeline.video_only_ablation import run_video_only_experiment
+from pipeline.audio_only_ablation import run_audio_only_experiment
 from pipeline.xgboost_baseline import run_xgboost_baseline
 
 warnings.filterwarnings("ignore")
