@@ -1,6 +1,6 @@
 import os
 import warnings
-
+import pickle
 
 from pipeline.log_parser import process_all_logs
 from pipeline.feature_extractor import run_extraction
@@ -20,13 +20,13 @@ CSV_PATH      = "./data/asmr_exp2_dataset.csv"
 FEATURES_DIR  = "./data/features"
 
 
-RUN_PARSER       = True   # Step 1: Parse behavioral logs
-RUN_EXTRACTION   = True   # Step 2: Extract ResNet & Librosa features
-RUN_PPG          = True   # Step 3: Process Physiological data
-RUN_FUSION       = True   # Step 4a: Train Full Multimodal BiLSTM
-RUN_VIDEO_ONLY   = True   # Step 4b: Train Video-Only Ablation
-RUN_AUDIO_ONLY   = True   # Step 4c: Train Audio-Only Ablation
-RUN_XGBOOST      = True   # Step 4d: Train Tabular XGBoost Baseline
+RUN_PARSER       = True   
+RUN_EXTRACTION   = True  
+RUN_PPG          = True   
+RUN_FUSION       = True   
+RUN_VIDEO_ONLY   = True
+RUN_AUDIO_ONLY   = True  
+RUN_XGBOOST      = True   
 
 if __name__ == "__main__":
     print()
@@ -70,13 +70,16 @@ if __name__ == "__main__":
         print("\n[STEP 3] Skipping PPG Processing...")
 
     
-    print("\n" + "="*60)
+    print()
     print("             STARTING MODEL EVALUATIONS               ")
-    print("="*60)
+    print()
 
     if RUN_FUSION:
+
         print("\n>>> EVALUATING FULL FUSION BILSTM <<<")
-        run_full_fusion_experiment(data_folder=FEATURES_DIR)
+        fusion_results=run_full_fusion_experiment(data_folder=FEATURES_DIR)
+        with open('./data/fusion_results.pkl', 'wb') as f:
+            pickle.dump(fusion_results, f)
 
     if RUN_VIDEO_ONLY:
         print("\n>>> EVALUATING VIDEO-ONLY ABLATION <<<")
