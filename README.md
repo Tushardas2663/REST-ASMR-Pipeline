@@ -61,7 +61,7 @@ If you utilize the REST-ASMR dataset or this pipeline in your research, please c
 
 ```bibtex
 @article{das2026restasmr,
-  title={REST-ASMR: A Multimodal dataset of physiological and continuous behavioral responses to ASMR and nature stimuli},
+  title={A multimodal dataset of physiological and continuous behavioral responses to ASMR and nature stimuli},
   author={Das, Tushar and Hozaki, Daigo and Singh, Koushlendra Kumar and Kondo, Hirohito M.},
   journal={Scientific Data},
   year={2026},
