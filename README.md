@@ -40,11 +40,8 @@ python main.py
 ```
 
 **3. Evaluate the Dashboard**
-Launch and run the interactive notebook cells to view the statistical analysis and visualizations:
+Launch and run the interactive notebook cells to view the statistical analysis and visualizations.
 
-```bash
-jupyter notebook REST_ASMR_Analysis.ipynb
-```
 
 ## Reproducibility Option
 
